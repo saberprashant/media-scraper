@@ -1,0 +1,3 @@
+- do npm install in root and client
+- run, npm run server in root folder
+- run, npm run client in root folder
