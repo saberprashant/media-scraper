@@ -27,7 +27,6 @@ function addUrls(setResults) {
               })
             }
           })
-          console.log(temp)
           setResults(temp);
         }
       })
@@ -42,7 +41,7 @@ function createTable(results) {
     <table className="table">
       <thead>
         <tr>
-          <th scope="col">URL</th>
+          <th scope="col">Fetched URL</th>
           <th scope="col">Media</th>
           <th scope="col">Type</th>
         </tr>
@@ -51,8 +50,12 @@ function createTable(results) {
         {results.map((r, i) => {
           <tr key={i}>
             <td>{r.url}</td>
-            <td>{r.media}</td>
-            <td>{r.type}</td>
+            <td>
+              {r.type === 'img' ? <img src={r.media} alt={r.media}/> : 'Video'}
+            </td>
+            <td>
+              {r.type === 'img' ? 'Image' : 'Video'}
+            </td>
           </tr>
         }
         )}
