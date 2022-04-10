@@ -2,7 +2,7 @@ import React, { useState }  from 'react';
 import './home.css';
 import MediaService from '../services/media.service';
 
-function addUrls(setResults) {	
+function addUrls(setData) {	
 	const urlsArrElem = document.getElementById('urls');
 
 	if(urlsArrElem && urlsArrElem.value) {
@@ -16,7 +16,7 @@ function addUrls(setResults) {
           let temp = [];
           Object.keys(res.data).forEach(k => {
             let arr = res.data[k];
-            console.log(res.data[k])
+            console.log(typeof(res.data[k]))
             if(arr && arr.length > 0) {
               arr.forEach(u => {
                 temp.push({
@@ -27,7 +27,7 @@ function addUrls(setResults) {
               })
             }
           })
-          setResults(temp);
+          setData(temp);
         }
       })
     }
@@ -67,6 +67,10 @@ function createTable(results) {
 function Home() {
   const [results, setResults] = useState([]);
 
+  const setData = (data) => {
+    setResults(data);
+  }
+
 	return (
 		<div className="px-100">
 			<label htmlFor="urls">Enter URLs(separated by comma):
@@ -74,7 +78,7 @@ function Home() {
 					<textarea id="urls" rows="7" cols="100" className="mr-30 mt-12"/>
 				</div>
 			</label>
-			<button type="button" className="small-btn mt-12" onClick={() => {addUrls(setResults)}}>Add</button>
+			<button type="button" className="small-btn mt-12" onClick={() => {addUrls(setData)}}>Add</button>
 
       <div className="mt-12" id="results">
         {results.length > 0 ? createTable(results) : ''}
