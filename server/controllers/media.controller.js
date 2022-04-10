@@ -58,8 +58,8 @@ exports.findAssets = (req, res) => {
 
       });
   }))
-  .then(d => {
-    return res.json({ data: fetchedAssets, message: "Welcome to Media Scraper App." });
+  .then(r => {
+    return res.json({ data: fetchedAssets, message: "Results for the entered URLs" });
   })
 };
 
@@ -68,6 +68,6 @@ exports.fetchAssets = (req, res) => {
 
   //fetch all assets from database
   Media.findAll({})
-  res.json({ data: data, message: "Welcome to Media Scraper App 333." });
+  res.json({ data: data, message: "Fetched media results." });
 
 };

@@ -1,0 +1,13 @@
+.small-btn {
+  width: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: black;
+  background-color: coral;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.small-btn:hover {
+  background-color: #ffc0cb;
+}
