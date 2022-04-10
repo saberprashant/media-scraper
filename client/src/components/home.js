@@ -12,8 +12,10 @@ function addUrls(setData) {
     //fetch from api
     if(urls.length > 0) {
       MediaService.findAssets({urls}).then(res => {
+        res = res.data;
         if(res.data && Object.keys(res.data).length > 0) {
           let temp = [];
+          console.log(Object.keys(res.data))
           Object.keys(res.data).forEach(k => {
             let arr = res.data[k];
             console.log(typeof(res.data[k]))
